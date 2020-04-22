@@ -29,11 +29,11 @@
                 <RadioButton Content="I'm sad :'(" />
             </ui:RadioButtons>
         </StackPanel>
-        <Label Content="Thank you for submitting your feedback! :)"
-               Visibility="Hidden" />
+        <Label Content="I'm an error message!"
+               Visibility="Collapsed" />
         <TextBox ui:ControlHelper.PlaceholderText="I want to tell the developers that..."
                  ui:ControlHelper.Header="Feedback"
-                 Height="100"
+                 Height="50"
                  MaxWidth="325"
                  AcceptsReturn="True"
                  TextWrapping="Wrap" />
