@@ -1,0 +1,52 @@
+﻿<ui:ContentDialog x:Class="ModernWPFBugs.DialogToShow"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:local="clr-namespace:ModernWPFBugs"
+                  xmlns:ui="http://schemas.modernwpf.com/2019"
+                  mc:Ignorable="d"
+                  d:DesignHeight="650"
+                  IsShadowEnabled="True"
+                  Title="I am a fancy dialog"
+                  CloseButtonText="Close"
+                  Style="{DynamicResource ScrollableContentDialogStyle}"
+                  DefaultButton="Close"
+                  d:DesignWidth="800">
+    <ui:ContentDialog.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </ui:ContentDialog.Resources>
+    <ui:SimpleStackPanel Spacing="8">
+        <TextBlock TextWrapping="Wrap"
+                   MaxWidth="325"
+                   Text="Your feedback is important to us. Please take a moment to send us some of your feedback, regardless of whether it's good or bad!" />
+        <StackPanel>
+            <ui:RadioButtons x:Name="Options"
+                             HorizontalAlignment="Center"
+                             MaxColumns="3">
+                <!-- A RadioButton group. -->
+                <RadioButton Content="I'm happy! :D" />
+                <RadioButton Content="I'm sad :'(" />
+            </ui:RadioButtons>
+        </StackPanel>
+        <Label Content="Thank you for submitting your feedback! :)"
+               Visibility="Hidden" />
+        <TextBox ui:ControlHelper.PlaceholderText="I want to tell the developers that..."
+                 ui:ControlHelper.Header="Feedback"
+                 Height="100"
+                 MaxWidth="325"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap" />
+        <TextBox ui:ControlHelper.PlaceholderText="somebody@nowhere.com"
+                 ui:ControlHelper.Header="Email Address (if we can contact you back)"
+                 MaxWidth="325"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap" />
+        <ui:SimpleStackPanel Orientation="Horizontal"
+                             Spacing="8"
+                             HorizontalAlignment="Center">
+            <ui:ProgressRing IsActive="True" />
+            <Label Content="Submitting feedback..." />
+        </ui:SimpleStackPanel>
+    </ui:SimpleStackPanel>
+</ui:ContentDialog>
